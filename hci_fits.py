@@ -125,7 +125,7 @@ Primary_header.append(('DATE', DATE, 'Date this file was written (yyyy-mm-dd)'),
 Primary_header.append(('', ''), end=True)
 Primary_header.append(('', 'FITS FILE DATA STRUCTURE'), end=True)
 Primary_header.append(('', ''), end=True)
-Primary_header.append(('NEXTEND', 5, 'Number of extensions'), end=True)
+Primary_header.append(('NEXTEND', 4, 'Number of extensions'), end=True)
 Primary_header.append(('EXT1NAME', 'DATA_INFORMATION', 'Extension 1 name'), end=True)
 Primary_header.append(('EXT1TYPE', 'BINTABLE', 'Extension 1 type'), end=True)
 
