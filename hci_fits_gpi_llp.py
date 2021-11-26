@@ -6,43 +6,43 @@ from astropy.io import fits
 #######################################################################################################
 ##### J spec KLIP ADI
 #######################################################################################################
-raw_data_dir = '/Users/jmazoyer/Dropbox/Work/python/python_data/disk_mcmc/resultats_mcmc_2001010/Aurora/160323_J_Spec/'
-reduc_data_data_snr = '/Users/jmazoyer/Dropbox/Work/IDL/IDL_data/hr4796/pyklip_reduc/160323_J_Johan_reduc/pyklipADIonly/hr4796-imageandnoise-pyklipADIonly-160323-J-KL3.fits'
+# raw_data_dir = '/Users/jmazoyer/Dropbox/Work/python/python_data/disk_mcmc/resultats_mcmc_2001010/Aurora/160323_J_Spec/'
+# reduc_data_data_snr = '/Users/jmazoyer/Dropbox/Work/IDL/IDL_data/hr4796/pyklip_reduc/160323_J_Johan_reduc/pyklipADIonly/hr4796-imageandnoise-pyklipADIonly-160323-J-KL3.fits'
 
-image_reduc = fits.getdata(reduc_data_data_snr)[0]
-image_sensitivity_map = fits.getdata(reduc_data_data_snr)[1]
-image_snr = image_reduc / image_sensitivity_map
+# image_reduc = fits.getdata(reduc_data_data_snr)[0]
+# image_sensitivity_map = fits.getdata(reduc_data_data_snr)[1]
+# image_snr = image_reduc / image_sensitivity_map
 
-name_investigator = 'Christine Chen'
-BIBREF = '2020AJ....160...79A'
-Polarization = 'I'
-REDALGO = 'KLIP'  # Reduction algorithm
-REDSTRAT = 'ADI'  #Strategy to build the PSF library
-EXCLANG = 3  # Exclusion angle for ADI-type strategy (deg)
-TKL = 3  #Number of eigenimages used for KLIP-type subtraction
-NPSFLIBR = 59  # Number of images in the PSF library
-NOISEMET = 'spatial'  # Method used for the detection limit
+# name_investigator = 'Christine Chen'
+# BIBREF = '2020AJ....160...79A'
+# Polarization = 'I'
+# REDALGO = 'KLIP'  # Reduction algorithm
+# REDSTRAT = 'ADI'  #Strategy to build the PSF library
+# EXCLANG = 3  # Exclusion angle for ADI-type strategy (deg)
+# TKL = 3  #Number of eigenimages used for KLIP-type subtraction
+# NPSFLIBR = 59  # Number of images in the PSF library
+# NOISEMET = 'spatial'  # Method used for the detection limit
 ###################################################################################################
 
 # #######################################################################################################
 # ##### H spec KLIP ADI
 # #######################################################################################################
-# raw_data_dir = '/Users/jmazoyer/Dropbox/Work/python/python_data/disk_mcmc/resultats_mcmc_2001010/Aurora/160318_H_Spec/'
-# reduc_data_data_snr = '/Users/jmazoyer/Dropbox/Work/IDL/IDL_data/hr4796/pyklip_reduc/160318_H_Johan_reduc/pyklipADIonly/hr4796-imageandnoise-pyklipADIonly-160318-H-KL3.fits'
+raw_data_dir = '/Users/jmazoyer/Dropbox/Work/python/python_data/disk_mcmc/resultats_mcmc_2001010/Aurora/160318_H_Spec/'
+reduc_data_data_snr = '/Users/jmazoyer/Dropbox/Work/IDL/IDL_data/hr4796/pyklip_reduc/160318_H_Johan_reduc/pyklipADIonly/hr4796-imageandnoise-pyklipADIonly-160318-H-KL3.fits'
 
-# image_reduc = fits.getdata(reduc_data_data_snr)[0]
-# image_sensitivity_map= fits.getdata(reduc_data_data_snr)[1]
-# image_snr = image_reduc/image_sensitivity_map
+image_reduc = fits.getdata(reduc_data_data_snr)[0]
+image_sensitivity_map= fits.getdata(reduc_data_data_snr)[1]
+image_snr = image_reduc/image_sensitivity_map
 
-# name_investigator = 'Bruce Macintosh'
-# BIBREF  = '2020AJ....160...79A'
-# Polarization = 'I'
-# REDALGO = 'KLIP' # Reduction algorithm
-# REDSTRAT = 'ADI' #Strategy to build the PSF library
-# EXCLANG = 3 # Exclusion angle for ADI-type strategy (deg)
-# TKL = 3  #Number of eigenimages used for KLIP-type subtraction
-# NPSFLIBR = 37 # Number of images in the PSF library
-# NOISEMET = 'spatial'  # Method used for the detection limit
+name_investigator = 'Bruce Macintosh'
+BIBREF  = '2020AJ....160...79A'
+Polarization = 'I'
+REDALGO = 'KLIP' # Reduction algorithm
+REDSTRAT = 'ADI' #Strategy to build the PSF library
+EXCLANG = 3 # Exclusion angle for ADI-type strategy (deg)
+TKL = 3  #Number of eigenimages used for KLIP-type subtraction
+NPSFLIBR = 37 # Number of images in the PSF library
+NOISEMET = 'spatial'  # Method used for the detection limit
 # ###################################################################################################
 
 #######################################################################################################
@@ -570,7 +570,7 @@ hci_fits = fits.HDUList([
     image_SNR_MAP, image_SENSITIVITY_MAP
 ])
 
-name_fits_save = 'HLSP_' + INSTRUME + '_' + PROPOSID + '_' + datecompact + '_' + OBSSTGY + '_' + REDALGO + '_' + REDSTRAT + '.fits'
+name_fits_save = 'HLSP_' +TARGNAME.replace(" ", "") + '_' +  INSTRUME + '_' + PROPOSID + '_' + datecompact + '_' + OBSSTGY + '_' + REDALGO + '_' + REDSTRAT + '.fits'
 
 hci_fits.writeto('/Users/jmazoyer/Desktop/' + name_fits_save, overwrite=True)
 
